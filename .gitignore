@@ -12,6 +12,7 @@ CLAUDE.md
 GEMINI.md
 .claude/
 .cursor/
+.freebuff/
 
 # Cache & log
 .phpcs-cache
