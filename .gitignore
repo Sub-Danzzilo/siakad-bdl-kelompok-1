@@ -1,0 +1,24 @@
+# Konfigurasi lokal & kredensial (JANGAN di-commit)
+/config/config.php
+.env
+
+# Dependensi
+/vendor/
+composer.phar
+
+# File AI agent (dipakai lokal saja, tidak ikut ke repo)
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.claude/
+.cursor/
+
+# Cache & log
+.phpcs-cache
+*.log
+
+# Editor & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

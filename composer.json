@@ -1,0 +1,29 @@
+{
+  "name": "kelompok/siakad",
+  "description": "SiAkad - Sistem Informasi Akademik (Mini Project Basis Data Lanjut)",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": ">=8.1",
+    "ext-mbstring": "*",
+    "ext-pdo": "*"
+  },
+  "require-dev": {
+    "php-parallel-lint/php-parallel-lint": "^1.4",
+    "squizlabs/php_codesniffer": "^3.10"
+  },
+  "scripts": {
+    "lint:syntax": "parallel-lint app public config scripts",
+    "lint": "phpcs",
+    "lint:fix": "phpcbf",
+    "cek-aturan": "@php scripts/cek-aturan.php",
+    "check": [
+      "@lint:syntax",
+      "@lint",
+      "@cek-aturan"
+    ]
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
