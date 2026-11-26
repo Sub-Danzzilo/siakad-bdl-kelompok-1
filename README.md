@@ -187,7 +187,9 @@ composer lint:fix     # perbaiki pelanggaran gaya otomatis
 
 ## Alur Git
 
-- Branch utama `main` dilindungi: jangan commit langsung.
+Panduan langkah demi langkah untuk anggota: [`docs/panduan-git.md`](docs/panduan-git.md).
+
+- Branch utama `main` dilindungi: jangan commit langsung. **Hanya Anggota 1 yang merge PR ke `main`.**
 - Setiap anggota bekerja di branch sendiri, mis. `fitur/rina-krs`.
 - Commit kecil dan sering, lalu push dan buka Pull Request ke `main`.
 - Jangan commit: `config/config.php`, `vendor/`, `AGENTS.md`, `.env`.
