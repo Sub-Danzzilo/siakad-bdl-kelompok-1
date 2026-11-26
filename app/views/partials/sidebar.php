@@ -5,6 +5,10 @@ if ($base !== '' && str_starts_with($path, $base)) {
     $path = '/' . trim(substr($path, strlen($base)), '/');
 }
 
+// Halaman yang fiturnya belum dibuat. Hapus path dari daftar ini setelah
+// halamannya selesai (lihat pembagian tugas di README).
+$belumSiap = ['/mahasiswa', '/dosen', '/matakuliah', '/krs', '/statistik', '/akademik/mahasiswa'];
+
 // Daftar menu: [judul grup => [[label, path], ...]]
 $menu = [
     '' => [['Dashboard', '/']],
@@ -25,9 +29,18 @@ $menu = [
         <li class="menu-title"><?= e($grup) ?></li>
       <?php endif; ?>
       <?php foreach ($items as [$label, $href]) : ?>
-        <?php $aktif = $href === '/' ? $path === '/' : str_starts_with($path, $href); ?>
+        <?php
+        $aktif = $href === '/' ? $path === '/' : str_starts_with($path, $href);
+        $segera = in_array($href, $belumSiap, true);
+        ?>
         <li class="nav-item">
-          <a class="nav-link<?= $aktif ? ' active' : '' ?>" href="<?= e(url($href)) ?>"><?= e($label) ?></a>
+          <a class="nav-link<?= $aktif ? ' active' : '' ?><?= $segera ? ' menu-segera' : '' ?>"
+             href="<?= e(url($href)) ?>"<?= $segera ? ' title="Halaman ini belum tersedia"' : '' ?>>
+            <?= e($label) ?>
+            <?php if ($segera) : ?>
+              <span class="badge text-bg-secondary fw-normal float-end">segera</span>
+            <?php endif; ?>
+          </a>
         </li>
       <?php endforeach; ?>
     <?php endforeach; ?>
